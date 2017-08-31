@@ -64,8 +64,10 @@ int main() {
             for (int j = 0; j < NB_OF_NODE; j++) {
                 if (wudg[i][j] != 0) {
                     if ((cost[j] == 0 && i != j) || cost[j] > wudg[i][j])
+                    {
                         cost[j] = wudg[i][j];
-                    prev[j] = i;
+                        prev[j] = i;
+                    }
 
                 }
             }

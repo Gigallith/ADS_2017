@@ -1,11 +1,22 @@
 #include <stdio.h>
-#include "main.h"
 
 
 const int NB_OF_NODE = 6;
 
-int *fcm(WeightedUnDiGraph graph, int sources[]) {
-    return 0;
+//int *fcm(WeightedUnDiGraph graph, int sources[]) {
+//    return 0;
+//}
+
+
+//Pour savoir si tous les sommets sont connus
+int allKnow(int tab[])
+{
+    for ( int i = 0; i<NB_OF_NODE; i++)
+    {
+        if ( tab[i] == 0)
+            return 0 ;
+    }
+    return 1;
 }
 
 
@@ -38,28 +49,14 @@ int main() {
     int know[NB_OF_NODE];
     know[0] = 1;
     know[3] = 1;
-    //int allKnow = 0;
 
     //création des graphes de sorties
     int src1[NB_OF_NODE][NB_OF_NODE];
     int in1[NB_OF_NODE];
     in1[0] = 1;
-    //int pt1 = 0;
     int src2[NB_OF_NODE][NB_OF_NODE];
     int in2[NB_OF_NODE];
     in2[3] = 1;
-    //int pt2 = 0;
-
-    //Pour savoir si tous les sommets sont connus
-    int allKnow()
-    {
-        for ( int i = 0; i<NB_OF_NODE; i++)
-        {
-            if ( know[i] == 0)
-                return 0 ;
-        }
-        return 1;
-    }
 
     //Première étape de l'algo, on récupère les coûts minimaux des neuds adjacents aux sources
     for (int i = 0; i < NB_OF_NODE; i++) {
@@ -75,7 +72,7 @@ int main() {
         }
     }
 
-    while ( allKnow() != 1 ) {
+    while ( allKnow(know) != 1 ) {
         //On récupère le neud avec le coût le plus petit
         int lowest = cost[0];
         for (int i = 0; i < NB_OF_NODE; i++) {

@@ -29,15 +29,15 @@ WeightedEdge * fcm(WeightedUnDiGraph* G, int verticesSourceList[],int verticesSo
 
     int fcm_size = 0;
 
-    WeightedEdge * fcmi = malloc(sizeof(WeightedEdge));// the edges of the MST
+    WeightedEdge * fcmi = malloc(sizeof(WeightedEdge));// les arêtes du MST
 
-    // a minimum-heap
+    // le tas minimum
     BinaryHeap *minHeap = initializeHeap();
-    // fill the minimum-heap with all the weighted edges from the graph G
+    //  On remplis le tas minimum avec les arêtes du graphe G
     fillHeap(minHeap,G);
-    //disjoint sets of all the vertices of the graph G
+    //disjoint sets de tous les sommets du graphe G
     DisjointSet *ds = initDisjointSet(G->nbVertices);
-    // while not all the vertices are connected
+    // tant que tous les noeuds ne sont pas connectés
     while ( ds->numSets > verticesSourceListSize ) {
         WeightedEdge *min = deleteExtreme(minHeap);
         int u = (min->edge).origin;

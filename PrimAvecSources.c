@@ -81,11 +81,7 @@ int main() {
             if (cost[i] < lowest && know[i] != 1)
                 lowest = i;
         }
-        for (int i = 0; i < NB_OF_NODE; i++) {
-            if (cost[i] < lowest && cost[i] != 0) {
-                lowest = cost[i];
-            }
-        }
+
         //On le marque comme connu et on l'ajoute à l'arbre correspondant
         know[lowest] = 1;
         if (in1[prev[lowest]] == 1) {

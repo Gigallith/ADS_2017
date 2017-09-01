@@ -75,8 +75,12 @@ int main() {
     }
 
     while ( allKnow(know) != 1 ) {
-        //On récupère le neud avec le coût le plus petit
-        int lowest = cost[0];
+        //On récupère le noeud avec le coût le plus petit
+        int lowest = NB_OF_NODE + 1;
+        for (int i = 0; i<NB_OF_NODE; i++){
+            if (cost[i] < lowest && know[i] != 1)
+                lowest = i;
+        }
         for (int i = 0; i < NB_OF_NODE; i++) {
             if (cost[i] < lowest && cost[i] != 0) {
                 lowest = cost[i];
